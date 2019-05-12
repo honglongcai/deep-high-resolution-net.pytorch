@@ -107,7 +107,7 @@ class custom_build_ext(build_ext):
         build_ext.build_extensions(self)
 
 
-ext_modules = [
+ext_modules = cythonize([
     Extension(
         "cpu_nms",
         ["cpu_nms.pyx"],
@@ -130,8 +130,9 @@ ext_modules = [
                                      '--compiler-options',
                                      "'-fPIC'"]},
         include_dirs = [numpy_include, CUDA['include']]
-    ),
-]
+    )],
+    compiler_directives={"language_level": "3"}
+)
 
 setup(
     name='nms',
