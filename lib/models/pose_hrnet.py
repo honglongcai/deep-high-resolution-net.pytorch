@@ -458,7 +458,9 @@ class PoseHighResolutionNet(nn.Module):
         x = self.final_layer(y_list[0])
         print(x.size())
         for i in range(17):
-            print(x[1,i,:,:])
+            ma = torch.argmax(x[1, i, :, :])
+            print(ma // 48, ma % 48)
+            
 
         return x
 
