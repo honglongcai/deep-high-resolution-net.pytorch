@@ -457,6 +457,8 @@ class PoseHighResolutionNet(nn.Module):
 
         x = self.final_layer(y_list[0])
         print(x.size())
+        for i in range(17):
+            print(x[1,i,:,:])
 
         return x
 
