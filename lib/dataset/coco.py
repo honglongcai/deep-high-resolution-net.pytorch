@@ -73,6 +73,7 @@ class COCODataset(JointsDataset):
         self.classes = ['__background__'] + cats
         logger.info('=> classes: {}'.format(self.classes))
         self.num_classes = len(self.classes)
+        print('num_classes:', self.num_classes)
         self._class_to_ind = dict(zip(self.classes, range(self.num_classes)))
         self._class_to_coco_ind = dict(zip(cats, self.coco.getCatIds()))
         self._coco_ind_to_class_ind = dict(
